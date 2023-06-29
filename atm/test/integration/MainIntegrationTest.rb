@@ -9,7 +9,7 @@ class MainIntegrationTest < Minitest::Test
     menu = "\nPlease, enter the number related to the action you wish to do: \n" \
                       "1) Check Balance\n2) Deposit\n3) Withdraw\n4) Exit\n"
                       
-    balance = "\n\nTotal balance is: 100\n\n"
+    balance = "\nTotal balance is: 100\n\n"
     
     output, _, _ = Open3.capture3("ruby Main.rb", :stdin_data => input)
 
@@ -24,7 +24,7 @@ class MainIntegrationTest < Minitest::Test
     menu = "\nPlease, enter the number related to the action you wish to do: \n" \
                       "1) Check Balance\n2) Deposit\n3) Withdraw\n4) Exit\n"
                       
-    balance = "\n\nTotal balance is: 150\n\n"
+    balance = "\nTotal balance is: 150\n\n"
     
     output, _, _ = Open3.capture3("ruby Main.rb", :stdin_data => input)
 
@@ -39,7 +39,7 @@ class MainIntegrationTest < Minitest::Test
     menu = "\nPlease, enter the number related to the action you wish to do: \n" \
                       "1) Check Balance\n2) Deposit\n3) Withdraw\n4) Exit\n"
                       
-    balance = "\n\nTotal balance is: 50\n\n"
+    balance = "\nTotal balance is: 50\n\n"
     
     output, _, _ = Open3.capture3("ruby Main.rb", :stdin_data => input)
 
@@ -53,8 +53,8 @@ class MainIntegrationTest < Minitest::Test
     input = "1\n3\n150\n1\n4\n"
     menu = "\nPlease, enter the number related to the action you wish to do: \n" \
                       "1) Check Balance\n2) Deposit\n3) Withdraw\n4) Exit\n"
-    insufficient_funds = "\n\nHow much do you want to withdraw? Insufficient funds\n"
-    balance = "\n\nTotal balance is: 100\n\n"
+    insufficient_funds = "\nHow much do you want to withdraw? Insufficient funds\n\n"
+    balance = "\nTotal balance is: 100\n\n"
     
     output, _, _ = Open3.capture3("ruby Main.rb", :stdin_data => input)
 
@@ -69,7 +69,7 @@ class MainIntegrationTest < Minitest::Test
     input = "4\n"
     menu = "\nPlease, enter the number related to the action you wish to do: \n" \
                       "1) Check Balance\n2) Deposit\n3) Withdraw\n4) Exit\n"
-    bye = "\n\nBye\n";
+    bye = "\nBye\n";
     
     output, _, _ = Open3.capture3("ruby Main.rb", :stdin_data => input)
 
@@ -83,7 +83,7 @@ class MainIntegrationTest < Minitest::Test
     input = "69\n"
     menu = "\nPlease, enter the number related to the action you wish to do: \n" \
                       "1) Check Balance\n2) Deposit\n3) Withdraw\n4) Exit\n"
-    error = "\n\n69 is and invalid option, please enter a valid option from the menu\n";
+    error = "\n69 is an invalid option. Please enter a valid option from the menu.\n\n";
     
     output, _, _ = Open3.capture3("ruby Main.rb", :stdin_data => input)
 
