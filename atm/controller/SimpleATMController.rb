@@ -9,7 +9,7 @@ class SimpleATMController
         @simpleATM = SimpleATM.new
     end
 
-    def getUserInput
+    def get_user_input
         return gets.chomp.to_i
     end
 
@@ -20,11 +20,11 @@ class SimpleATMController
           SimpleATMView.display_balance(balance)
         when 2
           SimpleATMView.display_deposit_message
-          amount = getUserInput
+          amount = get_user_input
           @simpleATM.deposit(amount)
         when 3
           SimpleATMView.display_withdraw_message
-          amount = getUserInput
+          amount = get_user_input
           if @simpleATM.withdraw(amount)
             SimpleATMView.display_balance(@simpleATM.balance)
           else

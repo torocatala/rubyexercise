@@ -5,6 +5,6 @@ simpleATMController = SimpleATMController.new
 option = -1
 while option != 4
     simpleATMController.display_menu
-    option = simpleATMController.getUserInput
+    option = simpleATMController.get_user_input
     simpleATMController.handle_option(option)
 end
