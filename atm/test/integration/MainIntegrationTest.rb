@@ -3,7 +3,7 @@
 require 'open3'
 require 'minitest/autorun'
 
-class ATMIntegrationTest < Minitest::Test
+class MainIntegrationTest < Minitest::Test
   def test_balance_check
     input = "1\n4\n"
     menu = "\nPlease, enter the number related to the action you wish to do: \n" \
@@ -11,7 +11,7 @@ class ATMIntegrationTest < Minitest::Test
                       
     balance = "\n\nTotal balance is: 100\n\n"
     
-    output, _, _ = Open3.capture3("ruby atm.rb", :stdin_data => input)
+    output, _, _ = Open3.capture3("ruby Main.rb", :stdin_data => input)
 
     output_lines = output.split("###")
 
@@ -26,7 +26,7 @@ class ATMIntegrationTest < Minitest::Test
                       
     balance = "\n\nTotal balance is: 150\n\n"
     
-    output, _, _ = Open3.capture3("ruby atm.rb", :stdin_data => input)
+    output, _, _ = Open3.capture3("ruby Main.rb", :stdin_data => input)
 
     output_lines = output.split("###")
 
@@ -41,7 +41,7 @@ class ATMIntegrationTest < Minitest::Test
                       
     balance = "\n\nTotal balance is: 50\n\n"
     
-    output, _, _ = Open3.capture3("ruby atm.rb", :stdin_data => input)
+    output, _, _ = Open3.capture3("ruby Main.rb", :stdin_data => input)
 
     output_lines = output.split("###")
 
@@ -56,7 +56,7 @@ class ATMIntegrationTest < Minitest::Test
     insufficient_funds = "\n\nHow much do you want to withdraw? Insufficient funds\n"
     balance = "\n\nTotal balance is: 100\n\n"
     
-    output, _, _ = Open3.capture3("ruby atm.rb", :stdin_data => input)
+    output, _, _ = Open3.capture3("ruby Main.rb", :stdin_data => input)
 
     output_lines = output.split("###")
 
@@ -71,7 +71,7 @@ class ATMIntegrationTest < Minitest::Test
                       "1) Check Balance\n2) Deposit\n3) Withdraw\n4) Exit\n"
     bye = "\n\nBye\n";
     
-    output, _, _ = Open3.capture3("ruby atm.rb", :stdin_data => input)
+    output, _, _ = Open3.capture3("ruby Main.rb", :stdin_data => input)
 
     output_lines = output.split("###")
 
@@ -85,7 +85,7 @@ class ATMIntegrationTest < Minitest::Test
                       "1) Check Balance\n2) Deposit\n3) Withdraw\n4) Exit\n"
     error = "\n\n69 is and invalid option, please enter a valid option from the menu\n";
     
-    output, _, _ = Open3.capture3("ruby atm.rb", :stdin_data => input)
+    output, _, _ = Open3.capture3("ruby Main.rb", :stdin_data => input)
 
     output_lines = output.split("###")
 

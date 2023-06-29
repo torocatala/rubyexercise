@@ -1,4 +1,6 @@
-balance = 100
+require_relative 'model/SimpleATM'
+
+simpleATM = SimpleATM.new
 option = -1
 
 def display_menu
@@ -11,27 +13,23 @@ def display_menu
     puts "###"
 end
 
-def check_balance(balance)
-    puts "Total balance is: #{balance}"
+def check_balance(simpleATM)
+    puts "Total balance is: #{simpleATM.balance}"
     puts ""
 end
 
-def deposit(balance)
+def deposit(simpleATM)
     print "How much do you want to deposit? "
     deposit_amount = gets.chomp.to_i
-    balance += deposit_amount
-    return balance
+    simpleATM.deposit(deposit_amount)
 end
 
-def withdraw(balance)
+def withdraw(simpleATM)
     print "How much do you want to withdraw? "
     withdraw_amount = gets.chomp.to_i
-    if withdraw_amount <= balance
-        balance -= withdraw_amount
-    else
+    if !simpleATM.withdraw(withdraw_amount)
         puts "Insufficient funds"
     end
-    return balance
 end
 
 while option != 4
@@ -44,11 +42,11 @@ while option != 4
     puts ""
     #Controls flow from menu
     if option == 1
-        check_balance(balance)
+        check_balance(simpleATM)
     elsif option == 2
-        balance = deposit(balance)
+        deposit(simpleATM)
     elsif option == 3
-        balance = withdraw(balance)
+        withdraw(simpleATM)
     elsif option == 4
         puts "Bye"
     else
